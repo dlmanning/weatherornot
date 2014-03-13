@@ -2,8 +2,6 @@ define(function (require) {
   var Backbone = require('backbone');
 
   var Forecast = Backbone.View.extend({
-    el: '#forecast',
-
     initialize: function () {
       this.render();
     },

@@ -4,22 +4,33 @@ define(function (require) {
   var Router = Backbone.Router.extend({
     initialize: function (options) {
       this.currentWeatherView = options.current;
-      this.forecastView = options.forecast;
+      this.dailyForecastView = options.dailyForecast;
+      this.hourlyForecastView = options.hourlyForecast;
+
     },
 
     routes: {
       'current': 'displayCurrentWeather',
-      'forecast': 'displayForecast'
+      'daily-forecast': 'displayDailyForecast',
+      'hourly-forecast': 'displayHourlyForecast'
     },
 
-    displayForecast: function () {
+    displayHourlyForecast: function () {
+      this.hourlyForecastView.$el.show();
+      this.dailyForecastView.$el.hide();
       this.currentWeatherView.$el.hide();
-      this.forecastView.$el.show();
+    },
+
+    displayDailyForecast: function () {
+      this.hourlyForecastView.$el.hide();
+      this.currentWeatherView.$el.hide();
+      this.dailyForecastView.$el.show();
     },
 
     displayCurrentWeather: function () {
+      this.hourlyForecastView.$el.hide();
       this.currentWeatherView.$el.show();
-      this.forecastView.$el.hide();
+      this.dailyForecastView.$el.hide();
     }
 
   });

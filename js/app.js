@@ -21,18 +21,29 @@ define(function (require) {
   function main (data) {
     
     console.log(data);
-    
+
     $('#loading-message').text('Your weather is now!');
 
     var currentWeatherModel = new WeatherConditions(data.currently);
     var dailyForecastCollection = new Forecast(data.daily.data);
+    var hourlyForecastCollection = new Forecast(data.hourly.data);
 
     var currentWeatherView = new CurrentWeatherView({model: currentWeatherModel});
-    var forecastView = new ForecastView({collection: dailyForecastCollection});
+
+    var dailyForecastView = new ForecastView({
+      el: '#daily-forecast',
+      collection: dailyForecastCollection
+    });
+
+    var hourlyForecastView = new ForecastView({
+      el: '#hourly-forecast',
+      collection: hourlyForecastCollection
+    });
 
     var router = new Router({
       current: currentWeatherView,
-      forecast: forecastView
+      dailyForecast: dailyForecastView,
+      hourlyForecast: hourlyForecastView
     });
 
     Backbone.history.start();
