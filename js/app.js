@@ -3,6 +3,7 @@ define(function (require) {
   var WeatherConditions = require('models/weather-conditions');
   var Forecast = require('collections/forecast');
   var CurrentWeatherView = require('views/current-weather');
+  var ForecastView = require('views/forecast');
 
   var app = {};
 
@@ -18,12 +19,13 @@ define(function (require) {
   function main (data) {
     console.log(data);
     var currentWeatherModel = new WeatherConditions(data.currently);
-    var dailyForcastCollection = new Forecast(data.daily.data);
+    var dailyForecastCollection = new Forecast(data.daily.data);
 
     var currentWeatherView = new CurrentWeatherView({model: currentWeatherModel});
+    var forecastView = new ForecastView({collection: dailyForecastCollection});
 
     app.current = currentWeatherModel;
-    app.forecast = dailyForcastCollection;
+    app.forecast = dailyForecastCollection;
   }
 
   window.app = app;
