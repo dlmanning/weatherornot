@@ -8,22 +8,26 @@ requirejs.config({
     'thorax'    : 'lib/thorax',
     'hbs'       : 'lib/require-handlebars-plugin/hbs',
     'templates' : '../templates',
-    'moment'    : 'lib/moment.min'
+    'moment'    : 'lib/moment.min',
+    'bootstrap' : 'lib/bootstrap.min'
   },
 
   shim: {
     'thorax': {
       deps: ['backbone', 'lib/globalHandlebars'],
       exports: 'Thorax'
+    },
+    'bootstrap': {
+      deps: ['jquery']
     }
   },
 
   hbs: {
-    compileOptions: { 
+    compileOptions: {
       data: true
     }
   }
 
 });
 
-require(['app']);
+require(['bootstrap','app']);

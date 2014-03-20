@@ -1,0 +1,18 @@
+<div class="panel panel-default">
+  <table class="table table-condensed table-striped">
+    <thead>
+      <tr>
+        <th>Time</th>
+        <th>Temperature</th>
+        <th>Summary</th>
+      </tr>
+    </thead>
+      {{#collection tag="tbody"}}
+        <tr>
+          <td>{{formattedTime time "ddd hh:mma"}}</td>
+          <td>{{temperature}}</td>
+          <td>{{summary}}</td>
+        </tr>
+      {{/collection}}
+  </table>
+</div>

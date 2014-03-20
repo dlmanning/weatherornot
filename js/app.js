@@ -20,7 +20,7 @@ define(function (require) {
    });
 
   function main (data) {
-    
+
     $('#loading-message').text('Your weather is now!');
 
     var currentWeatherModel      = new WeatherConditions(data.currently);
@@ -33,11 +33,13 @@ define(function (require) {
 
     var dailyForecastView = new ForecastView({
       el: '#daily-forecast',
+      template: require('hbs!templates/daily-forecast'),
       collection: dailyForecastCollection
     });
 
     var hourlyForecastView = new ForecastView({
       el: '#hourly-forecast',
+      template: require('hbs!templates/hourly-forecast'),
       collection: hourlyForecastCollection
     });
 

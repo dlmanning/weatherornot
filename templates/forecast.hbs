@@ -4,13 +4,22 @@
       <tr>
         <th>Time</th>
         <th>Temperature</th>
+        <th>Summary</th>
       </tr>
     </thead>
       {{#collection tag="tbody"}}
         {{#if temperature}}
-          <tr><td>{{formattedTime time "ddd hh:mma"}}</td> <td>{{temperature}}</td></tr>
+          <tr>
+            <td>{{formattedTime time "ddd hh:mma"}}</td>
+            <td>{{temperature}}</td>
+            <td>{{summary}}</td>
+          </tr>
         {{else}}
-          <tr><td>{{formattedTime time "MMMM DD"}}</td> <td>{{temperatureMax}}</td></tr>
+          <tr>
+            <td>{{formattedTime time "ddd - MMMM DD"}}</td>
+            <td>{{temperatureMin}} / {{temperatureMax}}</td>
+            <td>{{summary}}</td>
+          </tr>
         {{/if}}
       {{/collection}}
   </table>
