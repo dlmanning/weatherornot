@@ -1,19 +1,16 @@
 define(function (require) {
-  var Backbone = require('backbone');
+  var Thorax = require('thorax');
   var template = require('hbs!templates/current-weather');
 
-  var CurrentWeather = Backbone.View.extend({
+  var CurrentWeather = Thorax.View.extend({
     el: '#current-conditions',
-
-    template: template,
 
     initialize: function () {
       this.render();
     },
 
-    render: function () {
-      this.$el.html(this.template(this.model.attributes));
-    }
+    template: template
+    
   });
 
   return CurrentWeather;

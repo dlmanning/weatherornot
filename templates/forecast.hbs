@@ -1,0 +1,17 @@
+<div class="panel panel-default">
+  <table class="table table-condensed table-striped">
+    <thead>
+      <tr>
+        <th>Time</th>
+        <th>Temperature</th>
+      </tr>
+    </thead>
+      {{#collection tag="tbody"}}
+        {{#if temperature}}
+          <tr><td>{{formattedTime time "ddd hh:mma"}}</td> <td>{{temperature}}</td></tr>
+        {{else}}
+          <tr><td>{{formattedTime time "MMMM DD"}}</td> <td>{{temperatureMax}}</td></tr>
+        {{/if}}
+      {{/collection}}
+  </table>
+</div>

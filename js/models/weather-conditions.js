@@ -1,14 +1,7 @@
 define(function (require) {
-  var Backbone = require('backbone');
+  var Thorax = require('thorax');
 
-  var WeatherConditions = Backbone.Model.extend({
-
-    getFormattedTime: function () {
-      var UTC = this.get('time') * 1000;
-
-      return new Date(UTC).toString();
-    }
-
+  var WeatherConditions = Thorax.Model.extend({
 
   });
 
